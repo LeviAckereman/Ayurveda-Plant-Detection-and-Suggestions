@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayurveda Lens - Results</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="min-h-screen">
+  <header class="bg-green-800 text-white py-4">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <h1 class="text-2xl font-bold flex items-center">
+        <i class="fa fa-leaf mr-2"></i> Ayurveda Lens
+      </h1>
+      <nav class="space-x-6">
+        <a href="/" class="hover:underline">Home</a>
+        <a href="about.html" class="hover:underline">About</a>
+        <a href="ayurveda_and_you.html" class="hover:underline">Ayurveda & You</a>
+        <a href="newsroom.html" class="hover:underline">Newsroom</a>
+        <a href="join_us.html" class="hover:underline">Join Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="py-12 bg-white bg-opacity-75">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-green-800 mb-6">Plant Results</h2>
+
+      {% if message %}
+        <div class="bg-yellow-200 p-4 mb-6 rounded-lg text-center">
+          <p class="text-lg text-yellow-800 font-semibold">{{ message }}</p>
+        </div>
+      {% else %}
+        <div id="results-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h3 class="text-2xl font-bold text-green-800 mb-4">Uploaded Plant Image</h3>
+            <img src="{{ image_url }}" alt="Uploaded Plant" class="w-full h-64 object-cover rounded-lg">
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h3 class="text-2xl font-bold text-green-800 mb-4">Plant Information</h3>
+            <p class="text-lg font-semibold">Plant Name: <span>{{ plant_info['Name'] }}</span></p>
+            <p class="text-lg font-semibold">Botanical Name: <span>{{ plant_info['Botanical Name'] }}</span></p>
+            <p class="text-lg font-semibold">Medicinal Part: <span>{{ plant_info['Medicinal Part'] }}</span></p>
+            <p class="text-lg font-semibold">Medicinal Uses: <span>{{ plant_info['Medicinal Uses'] }}</span></p>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+
+</body>
+</html>

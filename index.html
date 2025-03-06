@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayurveda Lens - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="min-h-screen">
+  <header class="bg-green-800 text-white py-4">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <h1 class="text-2xl font-bold flex items-center">
+        <i class="fa fa-leaf mr-2"></i> Ayurveda Lens
+      </h1>
+      <nav class="space-x-6">
+        <a href="{{ url_for('home') }}" class="hover:underline">Home</a>
+        <a href="{{ url_for('about') }}" class="hover:underline">About</a>
+        <a href="{{ url_for('ayurveda_and_you') }}" class="hover:underline">Ayurveda & You</a>
+        <a href="{{ url_for('newsroom') }}" class="hover:underline">Newsroom</a>
+        <a href="{{ url_for('join_us') }}" class="hover:underline">Join Us</a>
+        {% if 'logged_in' in session and session['logged_in'] %}
+            <!-- Display Logout Button if Logged In -->
+            <a href="{{ url_for('login.logout') }}" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Logout</a>
+        {% else %}
+            <!-- Show Login Link if Not Logged In -->
+            <a href="{{ url_for('login.index') }}" class="bg-green-800 text-white px-4 py-2 rounded hover:bg-green-700"></a>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+
+  <section class="bg-white bg-opacity-75 py-12 text-center">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-extrabold text-green-900 mb-4 animate-fade-in">
+        Discover Ayurvedic Wisdom with Modern Technology
+      </h2>
+      <p class="text-lg text-gray-700 mb-6">
+        Upload an image to identify medicinal plants and explore their healing properties.
+      </p>
+    </div>
+  </section>
+
+  <!-- Only show image upload section if logged in -->
+  {% if 'logged_in' in session and session['logged_in'] %}
+    <section class="py-12 bg-gray-50 bg-opacity-75">
+      <div class="container mx-auto px-4 text-center">
+        <h3 class="text-2xl font-bold text-green-800 mb-4">Upload Plant Image</h3>
+
+        <!-- Image Upload Form -->
+        <form method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+          <div class="form-group mb-4">
+            <label for="plant_image" class="block text-sm text-gray-700">Upload Plant Image</label>
+            <input type="file" id="plant_image" name="file" class="form-control w-full p-2 border rounded" required>
+          </div>
+
+          <button type="submit" class="bg-green-800 text-white px-6 py-2 rounded hover:bg-green-700">Upload</button>
+        </form>
+        
+        {% if message %}
+          <div class="mt-4 text-red-500">{{ message }}</div>
+        {% endif %}
+      </div>
+    </section>
+  {% else %}
+    <section class="py-12 bg-gray-50 bg-opacity-75">
+      <div class="container mx-auto px-4 text-center">
+        <h3 class="text-2xl font-bold text-gray-700 mb-4">Please Login to Upload an Image</h3>
+      </div>
+    </section>
+  {% endif %}
+
+  <!-- Login/Signup Form (shown only when user is not logged in) -->
+  {% if 'logged_in' not in session or not session['logged_in'] %}
+    <section class="py-12 bg-gray-50 bg-opacity-75">
+      <div class="container mx-auto px-4 text-center">
+        <h3 class="text-2xl font-bold text-green-800 mb-4">Login / Sign Up</h3>
+
+        <!-- Display error or success message -->
+        {% if error_message %}
+          <div class="alert alert-danger text-red-500">
+            {{ error_message }}
+          </div>
+        {% endif %}
+        {% if success_message %}
+          <div class="alert alert-success text-green-500">
+            {{ success_message }}
+          </div>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('login.index') }}">
+          <div class="form-group mb-4">
+            <label for="username" class="block text-sm text-gray-700">Username</label>
+            <input type="text" class="form-control w-full p-2 border rounded" id="username" name="username" placeholder="Enter username" required>
+          </div>
+          <div class="form-group mb-4">
+            <label for="password" class="block text-sm text-gray-700">Password</label>
+            <input type="password" class="form-control w-full p-2 border rounded" id="password" name="password" placeholder="Enter password" required>
+          </div>
+
+          <!-- Login Button -->
+          <button type="submit" name="action" value="Login" class="bg-green-800 text-white px-6 py-2 rounded hover:bg-green-700">Login</button>
+
+          <!-- Sign up link and button -->
+          <p class="mt-3 text-gray-700">Don't have an account? <a href="{{ url_for('signup') }}" class="text-green-800 hover:underline">Sign up</a></p>
+        </form>
+      </div>
+    </section>
+  {% endif %}
+</body>
+</html>

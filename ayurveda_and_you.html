@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayurveda and You</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="min-h-screen bg-gray-100">
+
+  <!-- Header (Same as previous pages) -->
+  <header class="bg-green-800 text-white py-4">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <h1 class="text-2xl font-bold flex items-center">
+        <i class="fa fa-leaf mr-2"></i> Ayurveda Lens
+      </h1>
+      <nav class="space-x-6">
+        <a href="{{ url_for('index') }}" class="hover:underline">Home</a>
+        <a href="{{ url_for('result') }}"></a>
+        <a href="{{ url_for('about') }}" class="hover:underline">About</a>
+        <a href="{{ url_for('ayurveda_and_you') }}" class="hover:underline">Ayurveda & You</a>
+        <a href="{{ url_for('newsroom') }}" class="hover:underline">Newsroom</a>
+        <a href="{{ url_for('join_us') }}" class="hover:underline">Join Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Ayurveda Body Types Section (Doshas) -->
+  <section class="py-12 bg-white shadow-md mt-8">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-green-800 mb-6">Ayurvedic Body Types (Doshas)</h2>
+      <p class="text-lg text-gray-700 mb-6">In Ayurveda, every individual is categorized into three primary doshas: Vata, Pitta, and Kapha. These doshas represent different combinations of elements and play a crucial role in maintaining balance in the body and mind. Below is an overview of the doshas:</p>
+
+      <!-- Vata Dosha -->
+      <div class="mb-8">
+        <h3 class="text-2xl font-semibold text-green-700">Vata Dosha</h3>
+        <p class="text-lg text-gray-600 mt-2">Vata is associated with the elements of air and space. People with a dominant Vata dosha tend to be creative, energetic, and quick-thinking. However, when Vata is out of balance, it can lead to feelings of anxiety, dryness, and irregularity in digestion.</p>
+        <ul class="list-disc pl-6 mt-4">
+          <li><strong>Characteristics:</strong> Light, dry, cool, mobile, and irregular</li>
+          <li><strong>Imbalance Symptoms:</strong> Anxiety, dry skin, constipation, and fatigue</li>
+        </ul>
+      </div>
+
+      <!-- Pitta Dosha -->
+      <div class="mb-8">
+        <h3 class="text-2xl font-semibold text-green-700">Pitta Dosha</h3>
+        <p class="text-lg text-gray-600 mt-2">Pitta represents the fire and water elements. Individuals with a dominant Pitta dosha are typically intense, ambitious, and confident. When imbalanced, Pitta can cause irritability, inflammation, and digestive issues.</p>
+        <ul class="list-disc pl-6 mt-4">
+          <li><strong>Characteristics:</strong> Hot, sharp, intense, and focused</li>
+          <li><strong>Imbalance Symptoms:</strong> Irritability, acidity, skin rashes, and inflammation</li>
+        </ul>
+      </div>
+
+      <!-- Kapha Dosha -->
+      <div>
+        <h3 class="text-2xl font-semibold text-green-700">Kapha Dosha</h3>
+        <p class="text-lg text-gray-600 mt-2">Kapha is associated with the earth and water elements. People with a dominant Kapha dosha tend to be calm, grounded, and steady. When out of balance, Kapha can lead to weight gain, lethargy, and a slow metabolism.</p>
+        <ul class="list-disc pl-6 mt-4">
+          <li><strong>Characteristics:</strong> Heavy, slow, steady, and nurturing</li>
+          <li><strong>Imbalance Symptoms:</strong> Weight gain, sluggishness, congestion, and excessive sleep</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ayurvedic Home Remedies Section -->
+  <section class="py-12 bg-gray-50 mt-8">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-green-800 mb-6">Common Ayurvedic Home Remedies</h2>
+      <p class="text-lg text-gray-700 mb-6">Ayurveda offers a wide range of natural remedies for various ailments. Below are some common Ayurvedic home remedies that you can use to support your health and well-being:</p>
+
+      <!-- Remedy 1: Turmeric for Inflammation -->
+      <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+        <h3 class="text-2xl font-semibold text-green-700">Turmeric for Inflammation</h3>
+        <p class="text-lg text-gray-600 mt-2">Turmeric, a common Ayurvedic herb, has powerful anti-inflammatory properties. It can be consumed in the form of turmeric milk or added to meals to help reduce inflammation in the body.</p>
+        <ul class="list-disc pl-6 mt-4">
+          <li><strong>How to Use:</strong> Mix 1/2 teaspoon of turmeric powder in warm milk or water. Drink once or twice a day.</li>
+          <li><strong>Benefits:</strong> Reduces joint pain, supports digestion, and boosts immunity.</li>
+        </ul>
+      </div>
+
+      <!-- Remedy 2: Ginger for Digestion -->
+      <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+        <h3 class="text-2xl font-semibold text-green-700">Ginger for Digestion</h3>
+        <p class="text-lg text-gray-600 mt-2">Ginger is known for its digestive benefits and can be used to treat nausea, indigestion, and bloating. It also has anti-inflammatory and antioxidant properties.</p>
+        <ul class="list-disc pl-6 mt-4">
+          <li><strong>How to Use:</strong> Boil fresh ginger slices in water, strain, and drink as tea. You can also add honey for extra flavor.</li>
+          <li><strong>Benefits:</strong> Aids digestion, alleviates nausea, and relieves bloating.</li>
+        </ul>
+      </div>
+
+      <!-- Remedy 3: Ashwagandha for Stress -->
+      <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+        <h3 class="text-2xl font-semibold text-green-700">Ashwagandha for Stress</h3>
+        <p class="text-lg text-gray-600 mt-2">Ashwagandha is a powerful adaptogenic herb that helps the body manage stress and anxiety. It also supports energy levels and immune function.</p>
+        <ul class="list-disc pl-6 mt-4">
+          <li><strong>How to Use:</strong> Take 1/2 teaspoon of ashwagandha powder with warm water or milk, once a day.</li>
+          <li><strong>Benefits:</strong> Reduces stress and anxiety, improves energy, and boosts immunity.</li>
+        </ul>
+      </div>
+
+      <!-- Remedy 4: Neem for Skin Health -->
+      <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+        <h3 class="text-2xl font-semibold text-green-700">Neem for Skin Health</h3>
+        <p class="text-lg text-gray-600 mt-2">Neem is well-known for its antibacterial and antifungal properties. It is commonly used to treat skin conditions like acne, eczema, and infections.</p>
+        <ul class="list-disc pl-6 mt-4">
+          <li><strong>How to Use:</strong> Boil neem leaves in water, cool, and use the water to rinse your face or apply directly to affected areas.</li>
+          <li><strong>Benefits:</strong> Clears acne, prevents infections, and promotes healthy skin.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
