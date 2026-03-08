@@ -1,0 +1,17 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+ENV/
+.env
+
+# IDE specific
+.vscode/
+.idea/
+*.sublime-workspace
+
+# OS specific
+.DS_Store
+Thumbs.db
